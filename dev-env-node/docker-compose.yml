@@ -1,0 +1,33 @@
+version: "3"
+services: 
+  node:
+    image: webinar:dev-env-node
+    container_name: express-api
+    ports:
+      - "8000:8000"
+    networks:
+      - docker-service
+    depends_on: 
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    container_name: docker-mariadb
+    ports:
+      - "3306:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: "password"
+    networks:
+      - docker-service
+    volumes:
+      - maria-data:/var/lib/mysql
+#     - ./mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf          
+      
+
+networks:
+  docker-service:
+    driver: bridge
+
+volumes:
+  maria-data:
+    driver: local
