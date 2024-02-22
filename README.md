@@ -1,6 +1,7 @@
 You’ll need Docker installed on your computer. If you haven’t done this already, please follow the installation instructions at https://docs.docker.com/engine/install. To verify a successful installation, you can run docker –version in your terminal, which should return the installed version of Docker.
 
 1.) Docker-based Development Environment with MariaDB + VS Code + Cloud Beaver
+
 [https://programmingbrain.com/2023/12/a-full-fledged-development-environment]
 
 Accessing the IDE
