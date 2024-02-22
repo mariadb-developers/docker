@@ -71,6 +71,8 @@ After running the command, you can verify the progress by checking the logs:
 `docker logs <container_name>`
 Replace <container_name> with the name of the container.
 
+Navigate to localhost:8000 to test the PHP/Laravel application.
+
 #
 4.) Docker-based Development Environment with NodeJS and ExpressJS
 
@@ -94,6 +96,8 @@ After running the command, you can verify the progress by checking the logs:
 `docker logs <container_name>`
 Replace <container_name> with the name of the container.
 
+Navigate to localhost:8000 and localhost:8000/desserts to test the ExpressJS application.
+
 #
 4.) Docker-based Development Environment with phpMyAdmin
 
@@ -114,3 +118,5 @@ After running the command, you can verify the progress by checking the logs:
 
 `docker logs <container_name>`
 Replace <container_name> with the name of the container.
+
+Navigate to localhost:8080 in your browser to open PHPmyAdmin.
