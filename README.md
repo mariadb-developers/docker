@@ -48,5 +48,44 @@ Be patient! The first time you run this, Docker has to download the images to cr
 3.) Docker-based Development Environment with PHP + Laravel
 [https://www.digitalocean.com/community/tutorials/how-to-install-and-set-up-laravel-with-docker-compose-on-ubuntu-22-04]
 
+You can follow and interpret the steps above, and build the travellist image from the Dockerfile, or use the image on Dockerhub
+docker pull mariadb/developers:travellist 
+The nginx and mariadb community server images are already on Dockerhub. 
+This travellist-demo/docker-compose.yml maps a local directory for the mariadb data directory (/mariadb_data).
+
+Running the containers
+#
+To start the services, open a terminal and navigate to the directory containing the /dev-env-laravel's docker-compose.yml and execute:
+
+`docker compose up -d`
+This command downloads the necessary Docker images and starts the containers as defined in your Docker Compose file. The -d flag runs the containers in detached mode, allowing them to run in the background.
+
+After running the command, you can verify the progress by checking the logs:
+
+`docker logs <container_name>`
+Replace <container_name> with the name of the container.
+
 4.) Docker-based Development Environment with NodeJS and ExpressJS
 [https://alphonso-javier.medium.com/express-mariadb-with-docker-compose-d1af1dfae985](https://alphonso-javier.medium.com/express-mariadb-with-docker-compose-d1af1dfae985)
+
+You can follow and interpret the steps above, and build the express app image from the Dockerfile, or use the image on Dockerhub
+docker pull mariadb/developers:dev-env-node
+The mariadb community server image is already on Dockerhub. 
+This docker-compose.yml maps a local directory for the mariadb data directory (/maria-data).
+
+Running the containers
+#
+To start the services, open a terminal and navigate to the directory containing the /dev-env-laravel's docker-compose.yml and execute:
+
+`docker compose up -d`
+This command downloads the necessary Docker images and starts the containers as defined in your Docker Compose file. The -d flag runs the containers in detached mode, allowing them to run in the background.
+
+After running the command, you can verify the progress by checking the logs:
+
+`docker logs <container_name>`
+Replace <container_name> with the name of the container.
+
+4.) Docker-based Development Environment with phpMyAdmin
+https://mytchall.dev/running-mysql-and-phpmyadmin-locally-in-docker/
+The mariadb community server image is already on Dockerhub. 
+This docker-compose.yml maps a local directory for the mariadb data directory (/data).
