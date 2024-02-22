@@ -16,11 +16,13 @@ Running the containers
 To start the services, open a terminal and navigate to the directory containing your docker-compose.yml and install-extensions.sh files and execute:
 
 `docker compose up -d`
+
 This command downloads the necessary Docker images and starts the containers as defined in your Docker Compose file. The -d flag runs the containers in detached mode, allowing them to run in the background.
 
 After running the command, you can verify the progress by checking the logs:
 
 `docker logs <container_name>`
+
 Replace <container_name> with the name of the container.
 
 Be patient! The first time you run this, Docker has to download the images to create the containers as well as the Visual Studio Code extensions. Check the logs to see the progress.
@@ -41,11 +43,13 @@ Running the containers
 To start the services, open a terminal and navigate to the directory containing your /docker/dev-env-dbgate/docker-compose.yml and install-extensions.sh files and execute:
 
 `docker compose up -d`
+
 This command downloads the necessary Docker images and starts the containers as defined in your Docker Compose file. The -d flag runs the containers in detached mode, allowing them to run in the background.
 
 After running the command, you can verify the progress by checking the logs:
 
 `docker logs <container_name>`
+
 Replace <container_name> with the name of the container.
 
 Be patient! The first time you run this, Docker has to download the images to create the containers as well as the Visual Studio Code extensions. Check the logs to see the progress.
@@ -64,11 +68,13 @@ Running the containers
 To start the services, open a terminal and navigate to the directory containing the /docker/dev-env-laravel/docker-compose.yml and execute:
 
 `docker compose up -d`
+
 This command downloads the necessary Docker images and starts the containers as defined in your Docker Compose file. The -d flag runs the containers in detached mode, allowing them to run in the background.
 
 After running the command, you can verify the progress by checking the logs:
 
 `docker logs <container_name>`
+
 Replace <container_name> with the name of the container.
 
 Navigate to localhost:8000 to test the PHP/Laravel application.
@@ -89,11 +95,13 @@ Running the containers
 To start the services, open a terminal and navigate to the directory containing the /docker/dev-env-node/docker-compose.yml and execute:
 
 `docker compose up -d`
+
 This command downloads the necessary Docker images and starts the containers as defined in your Docker Compose file. The -d flag runs the containers in detached mode, allowing them to run in the background.
 
 After running the command, you can verify the progress by checking the logs:
 
 `docker logs <container_name>`
+
 Replace <container_name> with the name of the container.
 
 Navigate to localhost:8000 and localhost:8000/desserts to test the ExpressJS application.
@@ -112,11 +120,13 @@ Running the containers
 To start the services, open a terminal and navigate to the directory containing the /docker/dev-env-phpmyadmin/docker-compose.yml and execute:
 
 `docker compose up -d`
+
 This command downloads the necessary Docker images and starts the containers as defined in your Docker Compose file. The -d flag runs the containers in detached mode, allowing them to run in the background.
 
 After running the command, you can verify the progress by checking the logs:
 
 `docker logs <container_name>`
+
 Replace <container_name> with the name of the container.
 
 Navigate to localhost:8080 in your browser to open PHPmyAdmin.
