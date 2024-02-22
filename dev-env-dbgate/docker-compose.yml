@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: RootPassword123!
+      MARIADB_DATABASE: demo
+      MARIADB_USER: user
+      MARIADB_PASSWORD: Password123!
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+    restart: always
+
+  code-server:
+    image: codercom/code-server:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - PASSWORD=CodePassword123!
+    volumes:
+      - ./workspace:/home/coder/project
+      - ./install-extensions.sh:/install-extensions.sh
+    entrypoint: ["/bin/bash", "/install-extensions.sh"]
+    restart: always
+
+  db-gate:
+    image: dbgate/dbgate:latest
+    environment:
+      CONNECTIONS: con1
+      LABEL_con1: MariaDB
+      SERVER_con1: dockerhost
+      USER_con1: root
+      PASSWORD_con1: RootPassword123!
+      PORT_con1: 3306
+      ENGINE_con1: mysql@dbgate-plugin-mysql
+    ports:
+      - "3000:3000"
+    restart: always

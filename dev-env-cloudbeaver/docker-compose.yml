@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mariadb-server:
+    image: mariadb:latest
+    hostname: mariadb-server
+    environment:
+      MARIADB_ROOT_PASSWORD: RootPassword123!
+      EDITOR: mcedit
+    command: >
+      /bin/bash -c "
+        apt-get update &&
+        apt-get install -y mc pspg &&
+        docker-entrypoint.sh mariadbd
+      "
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+      - ./mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf
+    restart: always
+
+  code-server:
+    image: codercom/code-server:latest
+    hostname: code-server
+    ports:
+      - "3333:8080"
+    environment:
+      - PASSWORD=CodePassword123!
+    volumes:
+      - ./workspace:/home/coder/project
+      - ./vscode-extensions.sh:/vscode-extensions.sh
+    entrypoint: ["/bin/bash", "/vscode-extensions.sh"]
+    restart: unless-stopped
+
+  cloudbeaver:
+    hostname: cloudbeaver
+    image: dbeaver/cloudbeaver
+    ports:
+      - "4444:8978"
+    restart: unless-stopped
