@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: RootPassword123!
+      MYSQL_DATABASE: phpmyadmindb
+      MYSQL_USER: phpmyadminuser
+      MYSQL_PASSWORD: Password123!
+    networks:
+      - sail
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+#     - ./mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf      
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: phpmyadminuser
+      PMA_PASSWORD: Password123!
+    networks:
+      - sail
+    ports:
+      - "8080:80"
+    depends_on:
+      - mariadb
+networks:
+    sail:
+        driver: bridge

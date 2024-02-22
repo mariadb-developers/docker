@@ -1,0 +1,55 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: sammy
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: travellist
+    container_name: travellist-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - travellist
+# The official Docker mariadb image will run all *.sh and *.sql scripts in its /docker-entrypoint-initdb.d directory automatically when it starts.
+  db:
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+# - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+#     - ./mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf      
+    image: mariadb:latest
+    container_name: travellist-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: travellist
+      MYSQL_ROOT_PASSWORD: RootPassword123!
+      MYSQL_USER: travellist_user
+      MYSQL_PASSWORD: Password123!
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - travellist
+    command: --init-file /docker-entrypoint-initdb.d/init_db.sql
+
+  nginx:
+    image: nginx:alpine
+    container_name: travellist-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - travellist
+
+networks:
+  travellist:
+    driver: bridge
