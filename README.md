@@ -102,7 +102,7 @@ Navigate to localhost:8000 to test the PHP/Laravel application.
 
 ## Docker-based Development Environment with NodeJS and ExpressJS
 
-The files are located in [dev-env-node(dev-env-node) and is a variant, not an exact replica, of this excellent blog post here: 
+The files are located in [dev-env-node](dev-env-node) and is a variant, not an exact replica, of this excellent blog post here: 
 
 [https://alphonso-javier.medium.com/express-mariadb-with-docker-compose-d1af1dfae985](https://alphonso-javier.medium.com/express-mariadb-with-docker-compose-d1af1dfae985)
 
