@@ -4,7 +4,7 @@ You’ll need Docker installed on your computer. If you haven’t done this alre
 
 ## Docker-based Development Environment with MariaDB + VS Code + Cloud Beaver
 
-The files are located in [dev-env-cloudbeaver](dev-env-cloudbeaver) and based on Alejandro's Blog post here:
+The files are located in [dev-env-cloudbeaver](dev-env-cloudbeaver) and are based on Alejandro's Blog post here:
 
 [https://programmingbrain.com/2023/12/a-full-fledged-development-environment](https://programmingbrain.com/2023/12/a-full-fledged-development-environment)
 
