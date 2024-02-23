@@ -160,4 +160,4 @@ docker logs <container_name>
 
 Replace _<container_name>_ with the name of the container.
 
-Navigate to localhost:8080 in your browser to open PHPmyAdmin.
+Navigate to localhost:8080 in your browser to open phpMyAdmin.
